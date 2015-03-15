@@ -30,15 +30,18 @@ Will result in
 ```
 
 
-### Blur.creditCard
+### `Blur(object, options)`
 
-This option is used to set any string to show only the last four characters
-and blur out the rest with X's
+Recursively operate on keys in an object to censor, remove or modify values in
+some way to make it safe for logging.
 
-### Blur.remove
+- `object` - Object to operated on
+- `options` - object describing keys to be modified where:
+    - `<keyName>` - name of key to be modified, and value is `type` of operation
+    to be performed.
 
-Completely removes all matching keys
+#### Operation types:
 
-### Blur.censor
-
-Replaces all matching keys with the string `[BLURRED]`
+- `Blur.creditCard`- This option is used to set any string to show only the last four characters and blur out the rest with X's
+- `Blur.remove` - Completely removes all matching keys
+- `Blur.censor` - Replaces all values matching keys with the string `[BLURRED]`
