@@ -1,7 +1,7 @@
 THRESHOLD=90
 
 test:
-	@node node_modules/.bin/lab -p
+	@node node_modules/.bin/lab -p -v
 test-json:
 	@node node_modules/.bin/lab -p -r json -o results.json
 test-cov:
