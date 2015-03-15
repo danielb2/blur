@@ -39,6 +39,44 @@ describe('blur', function () {
         expect(result).to.deep.equal(expected);
         done();
     });
+
+    it('should not error with a short string', function (done) {
+
+        var obj = {
+            creditcard: {
+                number: 'LMNOP',
+            }
+        };
+
+        var expected = {
+            creditcard: {
+                number: 'XMNOP',
+            }
+        }
+
+        var result = Blur(obj, { number: Blur.creditCard });
+        expect(result).to.deep.equal(expected);
+        done();
+    });
+
+    it('should not error with a really short string', function (done) {
+
+        var obj = {
+            creditcard: {
+                number: 'P',
+            }
+        };
+
+        var expected = {
+            creditcard: {
+                number: 'P',
+            }
+        }
+
+        var result = Blur(obj, { number: Blur.creditCard });
+        expect(result).to.deep.equal(expected);
+        done();
+    });
 });
 
 
