@@ -1,6 +1,6 @@
 {
   "name": "blur",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library to modify and 'blur' information in objects",
   "main": "index.js",
   "scripts": {
