@@ -1,6 +1,6 @@
 {
   "name": "blur",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A library to 'blur' sensetive information for logging",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git@github.com:danielb2/blur.git"
   },
   "keywords": [
-    "filter"
+    "filter", "logging", "censoring"
   ],
   "author": "object",
   "license": "ISC",
