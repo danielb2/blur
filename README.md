@@ -41,4 +41,4 @@ Completely removes all matching keys
 
 ### Blur.censor
 
-Replaces all matching keys with a string `[BLURRED]`
+Replaces all matching keys with the string `[BLURRED]`
