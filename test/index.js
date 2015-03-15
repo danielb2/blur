@@ -17,26 +17,143 @@ var it = lab.it;
 
 describe('blur', function () {
 
-    it('blurs cardicard information', function (done) {
+    describe('creditcard', function () {
+
+        it('should leave non-string alone', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: ['blah']
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: ['blah']
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.creditCard });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+
+        it('blurs creditcard information', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: 'ABCDEFGHIJKLMNOP'
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: 'XXXXXXXXXXXXMNOP'
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.creditCard });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+
+        it('should not error with a short string', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: 'LMNOP',
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: 'XMNOP',
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.creditCard });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+
+        it('should not error with a really short string', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: 'P',
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: 'P',
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.creditCard });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+    });
+
+    describe('remove', function () {
+
+        it('should remove a key altogether', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: 'P',
+                    year: 17
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    year: 17
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.remove });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+    });
+
+    describe('censor', function () {
+
+        it('should completely censor any object', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: ['anything goes'],
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: '[BLURRED]'
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.censor });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+    });
+
+    it('should fail for bad blur option', function (done) {
 
         var obj = {
             creditcard: {
-                number: 'ABCDEFGHIJKLMNOP',
-                year: 17,
-                month: 4
+                number: ['anything goes'],
             }
         };
 
-        var expected = {
-            creditcard: {
-                number: 'XXXXXXXXXXXXMNOP',
-                year: 17,
-                month: 4
-            }
+        var badnessTest = function () {
+            Blur(obj, { number: Blur.badmojo });
         }
 
-        var result = Blur(obj, { number: Blur.creditCard });
-        expect(result).to.deep.equal(expected);
+        expect(badnessTest).to.throw()
         done();
     });
 });

@@ -1,5 +1,5 @@
 # Blur
-A library for filtering information from objects such as credit card information or other things which may be logged"
+A library for filtering information from objects such as credit card information or other things which may be logged
 
 ## Usage
 
@@ -28,3 +28,17 @@ Will result in
     }
 }
 ```
+
+
+### Blur.creditCard
+
+This option is used to set any string to show only the last four characters
+and blur out the rest with X's
+
+### Blur.remove
+
+Completely removes all matching keys
+
+### Blur.censor
+
+Replaces all matching keys with the string `[BLURRED]`
