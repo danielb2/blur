@@ -19,6 +19,25 @@ describe('blur', function () {
 
     describe('creditcard', function () {
 
+        it('should leave non-string alone', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: ['blah']
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: ['blah']
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.creditCard });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+
         it('blurs creditcard information', function (done) {
 
             var obj = {
