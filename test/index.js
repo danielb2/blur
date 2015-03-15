@@ -1,4 +1,4 @@
-var Scrub = require('../');
+var Blur = require('../');
 
 
 // Load modules
@@ -15,27 +15,27 @@ var describe = lab.describe;
 var it = lab.it;
 
 
-describe('object scrub', function () {
+describe('blur', function () {
 
-    it('scrubs an object', function (done) {
+    it('blurs cardicard information', function (done) {
 
         var obj = {
             creditcard: {
-                number: 411111111111111,
-                expiryDay: 17,
-                expiryMonth: 4
+                number: 'ABCDEFGHIJKLMNOP',
+                year: 17,
+                month: 4
             }
         };
 
         var expected = {
             creditcard: {
-                number: '[SCRUBBED]',
-                expiryDay: 17,
-                expiryMonth: 4
+                number: 'XXXXXXXXXXXXMNOP',
+                year: 17,
+                month: 4
             }
         }
 
-        var result = Scrub(obj, ['number']);
+        var result = Blur(obj, { number: Blur.creditCard });
         expect(result).to.deep.equal(expected);
         done();
     });

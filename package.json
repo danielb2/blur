@@ -1,14 +1,14 @@
 {
-  "name": "object-scrub",
+  "name": "blur",
   "version": "0.0.1",
-  "description": "A library for filtering information from objects such as credit card information or other things which may be logged",
+  "description": "A library to modify and 'blur' information in objects",
   "main": "index.js",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:danielb2/object-scrub.git"
+    "url": "git@github.com:danielb2/blur.git"
   },
   "keywords": [
     "filter"
@@ -16,9 +16,9 @@
   "author": "object",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/danielb2/object-scrub/issues"
+    "url": "https://github.com/danielb2/blur/issues"
   },
-  "homepage": "https://github.com/danielb2/object-scrub",
+  "homepage": "https://github.com/danielb2/blur",
   "dependencies": {
     "code": "^1.3.0",
     "hoek": "2.x.x",
