@@ -19,7 +19,7 @@ var result = Blur(obj, { number: Blur.creditCard });
 
 Will result in
 
-```
+``` javascript
 {
     creditcard: {
         number: 'XXXXXXXXXXXXMNOP',
