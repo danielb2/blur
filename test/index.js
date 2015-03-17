@@ -156,6 +156,22 @@ describe('blur', function () {
         expect(badnessTest).to.throw()
         done();
     });
+
+    it('should fail for bad blur options non-object', function (done) {
+
+        var obj = {
+            creditcard: {
+                number: ['anything goes'],
+            }
+        };
+
+        var badnessTest = function () {
+            Blur(obj, true);
+        }
+
+        expect(badnessTest).to.throw()
+        done();
+    });
 });
 
 

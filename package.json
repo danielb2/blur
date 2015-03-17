@@ -1,6 +1,6 @@
 {
   "name": "blur",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library to 'blur' sensetive information for logging",
   "main": "index.js",
   "scripts": {
