@@ -57,6 +57,25 @@ describe('blur', function () {
             done();
         });
 
+        it('should not error with a 4 character string', function (done) {
+
+            var obj = {
+                creditcard: {
+                    number: '4448',
+                }
+            };
+
+            var expected = {
+                creditcard: {
+                    number: '4448',
+                }
+            }
+
+            var result = Blur(obj, { number: Blur.creditCard });
+            expect(result).to.deep.equal(expected);
+            done();
+        });
+
         it('should not error with a short string', function (done) {
 
             var obj = {
